@@ -1,0 +1,54 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Category {
+  id       String    @id @default(uuid())
+  name     String    @unique
+  slug     String    @unique
+  watches  Watch[]
+}
+
+model Watch {
+  id           String      @id @default(uuid())
+  title        String
+  slug         String      @unique
+  description  String
+  price        Float
+  images       String
+  brand        String
+  movement     String
+  caseDiameter String
+  waterResist  String
+  stock        Int         @default(0)
+  categoryId   String
+  category     Category    @relation(fields: [categoryId], references: [id])
+  orderItems   OrderItem[]
+  createdAt    DateTime    @default(now())
+}
+
+model Order {
+  id           String      @id @default(uuid())
+  customerName String
+  email        String
+  address      String
+  total        Float
+  status       String      @default("PENDING")
+  items        OrderItem[]
+  createdAt    DateTime    @default(now())
+}
+
+model OrderItem {
+  id       String @id @default(uuid())
+  orderId  String
+  order    Order  @relation(fields: [orderId], references: [id])
+  watchId  String
+  watch    Watch  @relation(fields: [watchId], references: [id])
+  quantity Int
+  price    Float
+}
