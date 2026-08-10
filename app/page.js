@@ -102,13 +102,13 @@ export default function HomePage() {
       {/* Watch Grid */}
       <section className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[1, 2, 3, 4].map((n) => (
               <div key={n} className="h-96 bg-slate-900/50 rounded-3xl animate-pulse border border-slate-800" />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {watches.map((watch, index) => (
               <motion.div
                 key={watch.id}
@@ -119,7 +119,7 @@ export default function HomePage() {
                 className="group bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/50 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between transition-all duration-300 hover:shadow-amber-500/10"
               >
                 {/* Image Container with Zoom & Hover Effect */}
-                <div className="relative h-64 w-full overflow-hidden bg-slate-950">
+                <div className="relative h-40 sm:h-64 w-full overflow-hidden bg-slate-950">
                   <motion.img
                     src={watch.images}
                     alt={watch.title}
