@@ -102,13 +102,13 @@ export default function HomePage() {
       {/* Watch Grid */}
       <section className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
         {loading ? (
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div classmame="grid grid-cols-2 sm:grid-cols2 lg:grid-cols4 gap-4">
             {[1, 2, 3, 4].map((n) => (
               <div key={n} className="h-96 bg-slate-900/50 rounded-3xl animate-pulse border border-slate-800" />
             ))}
           </div>
-        ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          ): (
+         <div classmame="grid grid-cols-2 sm:grid-cols2 lg:grid-cols4 gap-4">
             {watches.map((watch, index) => (
               <motion.div
                 key={watch.id}
