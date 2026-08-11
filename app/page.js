@@ -35,12 +35,12 @@ export default function HomePage() {
     <main className="min-h-screen bg-slate-950 text-slate-100 relative overflow-hidden font-sans dir-rtl" dir="rtl">
       {/* Dynamic AI Background Glows */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse" />
-      <div className="absolute bottom-1/3 right-10 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-10 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/70 border-b border-slate-800/80 px-6 py-4">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/70 border-b border-slate-800/80 px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
@@ -58,7 +58,7 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             className="relative bg-slate-900 border border-slate-800 px-5 py-2.5 rounded-full flex items-center gap-3 shadow-inner"
@@ -66,7 +66,7 @@ export default function HomePage() {
             <ShoppingBag className="w-5 h-5 text-amber-400" />
             <span className="text-sm font-bold">السلة</span>
             <AnimatePresence mode="wait">
-              <motion.span 
+              <motion.span
                 key={cartCount}
                 initial={{ scale: 1.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -87,28 +87,28 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold mb-6">
             <Zap className="w-3.5 h-3.5" /> تشكيلة النخبة لعام 2026
           </span>
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-4">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
             الفخامة تلتقي بـ <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">الذكاء الاصطناعي</span>
           </h2>
           <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto">
-            اختر ساعتك القادمة المصممة بأعلى معايير الدقة والجمال. استمتع بتجربة تسوق سريعة ومميزة.
+            اختر ساعتك القادمة المصممة بأعلى معايير الدقة والجمال، استمتع بتجربة تسوق سريعة ومميزة.
           </p>
         </motion.div>
       </section>
 
       {/* Watch Grid */}
-      <section className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
+      <section className="max-w-7xl mx-auto px-4 md:px-6 pb-20 relative z-10">
         {loading ? (
-          <div classmame="grid grid-cols-2 sm:grid-cols2 lg:grid-cols4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
             {[1, 2, 3, 4].map((n) => (
-              <div key={n} className="h-96 bg-slate-900/50 rounded-3xl animate-pulse border border-slate-800" />
+              <div key={n} className="h-80 md:h-96 bg-slate-900/50 rounded-3xl animate-pulse border border-slate-800" />
             ))}
           </div>
-          ): (
-         <div classmame="grid grid-cols-2 sm:grid-cols2 lg:grid-cols4 gap-4">
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
             {watches.map((watch, index) => (
               <motion.div
                 key={watch.id}
@@ -116,71 +116,70 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                className="group bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/50 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between transition-all duration-300 hover:shadow-amber-500/10"
+                className="group bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/50 rounded-3xl p-3 md:p-4 transition-all duration-300 flex flex-col justify-between"
               >
-                {/* Image Container with Zoom & Hover Effect */}
-                <div className="relative h-40 sm:h-64 w-full overflow-hidden bg-slate-950">
-                  <motion.img
-                    src={watch.images}
-                    alt={watch.title}
-                    whileHover={{ scale: 1.15, rotate: -1 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
-                  
-                  <span className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-amber-400 border border-amber-500/30 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                    {watch.category?.name || 'فاخرة'}
-                  </span>
-                </div>
+                <div>
+                  {/* Image Container with Zoom & Hover Effect */}
+                  <div className="relative h-36 sm:h-48 w-full overflow-hidden rounded-2xl mb-4 bg-slate-950">
+                    <motion.img
+                      src={watch.images}
+                      alt={watch.title}
+                      whileHover={{ scale: 1.15, rotate: -1 }}
+                      transition={{ duration: 0.6 }}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
+                    <span className="absolute top-2 right-2 md:top-4 md:right-4 bg-slate-900/80 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[10px] md:text-xs font-semibold px-2.5 py-1 rounded-full">
+                      {watch.category?.name || 'فاخرة'}
+                    </span>
+                  </div>
 
-                {/* Details */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-bold text-amber-500 tracking-wider uppercase block mb-1">
+                  {/* Details */}
+                  <div className="space-y-1 mb-4">
+                    <span className="text-[10px] md:text-xs font-bold text-amber-500 tracking-wider uppercase block">
                       {watch.brand}
                     </span>
-                    <h3 className="text-lg font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+                    <h3 className="text-sm md:text-lg font-bold text-slate-100 group-hover:text-amber-400 transition-colors line-clamp-1">
                       {watch.title}
                     </h3>
-                    <p className="text-slate-400 text-xs line-clamp-2 leading-relaxed mb-4">
+                    <p className="text-slate-400 text-[11px] md:text-xs line-clamp-2 leading-relaxed">
                       {watch.description}
                     </p>
                   </div>
+                </div>
 
-                  <div>
-                    <div className="flex items-center justify-between text-xs text-slate-400 bg-slate-950/60 p-3 rounded-2xl mb-5 border border-slate-800/50">
-                      <span>⚙️ {watch.movement}</span>
-                      <span>📏 {watch.caseDiameter}</span>
-                    </div>
+                <div>
+                  <div className="flex items-center justify-between text-xs text-slate-400 bg-slate-950/60 p-2 rounded-xl mb-3 border border-slate-800/60">
+                    <span className="flex items-center gap-1">⚙️ {watch.movement}</span>
+                    <span className="font-semibold text-slate-300">{watch.caseDiameter}</span>
+                  </div>
 
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-800/60">
-                      <div>
-                        <span className="text-[10px] text-slate-500 block uppercase">السعر الرسمي</span>
-                        <span className="text-xl font-black text-emerald-400">${watch.price}</span>
-                      </div>
-
-                      <motion.button
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => handleAddToCart(watch.id)}
-                        className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all flex items-center gap-2 shadow-lg ${
-                          addedId === watch.id
-                            ? 'bg-emerald-500 text-slate-950'
-                            : 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 hover:from-amber-400 hover:to-amber-300 shadow-amber-500/20'
-                        }`}
-                      >
-                        {addedId === watch.id ? (
-                          <>
-                            <Check className="w-4 h-4" /> تمت الإضافة
-                          </>
-                        ) : (
-                          <>
-                            <ShoppingBag className="w-4 h-4" /> أضف للسلة
-                          </>
-                        )}
-                      </motion.button>
+                  <div className="flex items-center justify-between pt-2 border-t border-slate-800/60 mb-3">
+                    <div>
+                      <span className="text-[9px] md:text-[10px] text-slate-500 block uppercase">السعر الرسمي</span>
+                      <span className="text-sm md:text-xl font-black text-emerald-400">${watch.price}</span>
                     </div>
                   </div>
+
+                  <motion.button
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => handleAddToCart(watch.id)}
+                    className={`w-full py-2.5 px-3 rounded-2xl text-xs font-bold transition-all flex items-center justify-center gap-2 shadow-lg ${
+                      addedId === watch.id
+                        ? 'bg-emerald-500 text-slate-950'
+                        : 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 hover:from-amber-400 hover:to-amber-300'
+                    }`}
+                  >
+                    {addedId === watch.id ? (
+                      <>
+                        <Check className="w-4 h-4" /> تم الإضافة
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingBag className="w-4 h-4" /> أضف للسلة
+                      </>
+                    )}
+                  </motion.button>
                 </div>
               </motion.div>
             ))}
