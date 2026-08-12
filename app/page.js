@@ -95,13 +95,13 @@ export default function HomePage() {
         ) : (
           <div className="grid grid-cols-2 gap-2">
             {watches.map((watch, index) => (
-              <Link href={`/watches/${watch.id}`} key={watch.id} className="block">
+              <Link href={`/watches/${watch.id}`} key={watch.id} className="block w-full">
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="group bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/50 rounded-3xl p-3 md:p-4 transition-all duration-300 cursor-pointer flex flex-col justify-between h-full"
+                 className="group bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/50 rounded-2xl md:rounded-3xl p-2 md:p-4 transition-all duration-300 cursor-pointer flex flex-col justify-between h-full overflow-hidden"
                 >
                   <div>
                     <div className="relative h-36 sm:h-48 w-full overflow-hidden rounded-2xl mb-4 bg-slate-950">
