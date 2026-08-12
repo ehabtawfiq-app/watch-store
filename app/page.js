@@ -95,7 +95,7 @@ export default function HomePage() {
         ) : (
           <div className="grid grid-cols-2 gap-2">
             {watches.map((watch, index) => (
-              <Link href={`/watches/${watch.id}`} key={watch.id} className="block w-full">
+              <Link href={`/watches/${watch.id}`} key={watch.id} className="block">
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
