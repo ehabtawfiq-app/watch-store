@@ -52,7 +52,7 @@ export default function HomePage() {
             </div>
             <div>
               <h1 className="text-2xl font-black bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 bg-clip-text text-transparent">
-                TIMEPIECE AI
+                Aura Time
               </h1>
               <p className="text-xs text-slate-400 flex items-center gap-1">
                 <Sparkles className="w-3 h-3 text-amber-400" /> المتجر الذكي للساعات الفاخرة
