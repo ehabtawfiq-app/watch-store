@@ -5,10 +5,10 @@ import { prisma } from '@/lib/prisma';
 
 export async function GET(request, { params }) {
   try {
-    const { slug } = await params;
+    const { id } = await params;
 
     const watch = await prisma.watch.findUnique({
-      where: { slug },
+      where: { id },
       include: {
         category: true,
       },
