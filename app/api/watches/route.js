@@ -1,5 +1,4 @@
 export const dynamic = 'force-dynamic';
-
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
@@ -20,11 +19,9 @@ export async function GET(request) {
       },
     });
 
-    return NextResponse.json(watches);
+    return NextResponse.json(watches, { status: 200 });
   } catch (error) {
-    return NextResponse.json(
-      { error: 'حدث خطأ أثناء جلب البيانات' },
-      { status: 500 }
-    );
+    console.error('Prisma Error Details:', error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
